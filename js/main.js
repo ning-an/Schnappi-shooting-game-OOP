@@ -26,7 +26,7 @@ const keydownHandler = (event) => {
     gameEngine.player.moveDown();
   }
 
-  if (event.code === 'KeyW') {
+  if (event.code === 'Space') {
     gameEngine.player.shootUp();
   }
 };

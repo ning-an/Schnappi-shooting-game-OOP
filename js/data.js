@@ -17,8 +17,8 @@ let ENEMY_HEIGHT = INI_ENEMY_HEIGHT;
 const MAX_ENEMIES = 3;
 
 // These constants represent the player width and height.
-const PLAYER_WIDTH = 75;
-const PLAYER_HEIGHT = 54;
+const PLAYER_WIDTH = 100;
+const PLAYER_HEIGHT = 72;
 
 const time = 20;
 

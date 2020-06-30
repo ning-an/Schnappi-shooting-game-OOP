@@ -9,7 +9,7 @@ class Player {
         this.domElement.src = 'images/schnappi.png';
         //locate it
         this.x = GAME_WIDTH / 2 - PLAYER_WIDTH / 2;
-        this.y = GAME_HEIGHT - PLAYER_HEIGHT - 10;
+        this.y = GAME_HEIGHT - PLAYER_HEIGHT - 40;
         this.domElement.style.position = 'absolute';
         this.domElement.style.left = `${this.x}px`;
         this.domElement.style.top = `${this.y}px`;
