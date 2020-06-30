@@ -9,8 +9,8 @@ class Enemy {
         this.x = Math.random() * (GAME_WIDTH - this.width);
         this.y = -this.height;
         this.domElement.style.position = 'absolute';
-        this.domElement.style.top = `${this.y}`;
-        this.domElement.style.left = `${this.x}`;
+        this.domElement.style.top = `${this.y}px`;
+        this.domElement.style.left = `${this.x}px`;
         this.domElement.style.zIndex = '2';
         this.domElement.style.height = `${this.height}px`;
         this.domElement.style.width = `${this.width}px`;

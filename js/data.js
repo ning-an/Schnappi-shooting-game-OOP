@@ -39,7 +39,7 @@ const addBtn = (root) => {
     Btn.innerText = 'START';
     Btn.style.position = 'absolute';
     Btn.style.top = '30%';
-    Btn.style.left = `${GAME_WIDTH / 2}`;
+    Btn.style.left = `${GAME_WIDTH / 2}px`;
     Btn.style.transform = 'translate(-50%)';
     Btn.style.fontSize = '30px';
     Btn.style.height = '2.5em';
