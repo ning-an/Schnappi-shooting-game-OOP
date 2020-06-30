@@ -36,7 +36,7 @@ class Engine {
     // We use the number of milliseconds since the last call to gameLoop to update the enemy positions.
     // Furthermore, if any enemy is below the bottom of our game, its destroyed property will be set. (See Enemy.js)
     this.enemies.forEach((enemy) => {
-      enemy.update(timeDiff);
+      enemy.updatePos(timeDiff);
     });
 
     // We remove all the destroyed enemies from the array referred to by \`this.enemies\`.
@@ -67,7 +67,5 @@ class Engine {
 
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
-  isPlayerDead = () => {
-    return false;
-  };
+  isPlayerDead = () => this.enemies.some( enemy => enemy.x === this.player.x && (enemy.y + ENEMY_HEIGHT) >= (GAME_HEIGHT - PLAYER_HEIGHT + 5));
 }
