@@ -89,7 +89,7 @@ const timeIncrement = (node) => {
     if (seconds >= 60) {
         seconds = 0;
         minutes++;
-    }
+   }
     node.textContent = (minutes ? (minutes > 9 ? minutes : '0' + minutes) : '00') + ':' + (seconds > 9 ? seconds : '0' + seconds);
 }
 
@@ -97,10 +97,10 @@ const addTimer = (root) => {
     const timer = document.createElement('div');
     timer.textContent = '00:00';
     timer.style.position = 'absolute';
-    timer.style.top = '10px';
+    timer.style.top = '15px';
     timer.style.left = '50%';
     timer.style.transform = 'translate(-50%)';
-    timer.style.fontSize = '30px';
+    timer.style.fontSize = '25px';
     timer.style.color = '#E14802';
     timer.style.fontWeight = 'bold';
     root.appendChild(timer);
@@ -116,11 +116,11 @@ const shoot = (root, x, y) => {
 }
 
 //collision detection
-const isCollide = (a, enemy) => {
+const isCollide = (a, b) => {
     return !(
-        ((a.y + a.height - 15) < enemy.y) ||
-        ((a.y + 15) > (enemy.y + ENEMY_HEIGHT)) ||
-        ((a.x + 15) > (enemy.x + ENEMY_WIDTH)) ||
-        ((a.x + a.width - 15) < (enemy.x))
+        ((a.y + a.height - 15) < b.y) ||
+        ((a.y + 15) > (b.y + b.height)) ||
+        ((a.x + 15) > (b.x + b.width)) ||
+        ((a.x + a.width - 15) < (b.x))
     );
 }

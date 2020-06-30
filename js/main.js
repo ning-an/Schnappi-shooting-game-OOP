@@ -48,7 +48,7 @@ const startGame = (e) => {
   const stopWatch = setInterval(() => {
     timeIncrement(gameEngine.timer)
   }, 1000)
-
+  
   const startGame = setInterval( () => {
     gameEngine.gameLoop();
     //check and update player
@@ -63,7 +63,7 @@ const startGame = (e) => {
         // gameEngine.bgm.pause();
       } else {
         gameEngine.lives.innerText = '';
-        gameEngine.scoreBoard.innerHTML = 'GAME OVER<br>💀';
+        gameEngine.scoreBoard.innerHTML = `GAME OVER<br>💀<br>Score ${gameEngine.score.innerText}`;
         gameEngine.bgm.pause();
       }
     }

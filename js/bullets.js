@@ -14,13 +14,17 @@ class Bullet {
         this.y;
         //status
         this.destroyed = false;
+        this.isDestroyed = false;
     }
     updatePos = () => {
+        this.y -= 2;
+        this.domElement.style.top = `${this.y}px`;
         if (this.x <=0 || this.x >= GAME_WIDTH || this.y <= 0) {
             this.destroyed = true;
         }
-        if (this.destroyed) {
+        if (this.destroyed && !this.isDestroyed) {
             this.root.removeChild(this.domElement);
+            this.isDestroyed = true;
         }
     }
 }

@@ -29,17 +29,22 @@ class Engine {
         this.collideSoundEffect = addSound(root, "./images/crack2.mp3")
         //create timer
         this.timer = addTimer(root);
+        //create score
+        this.score = document.createElement('div');
+        this.score.innerText = '0';
+        this.score.style.position = 'absolute';
+        this.score.style.top = '15px';
+        this.score.style.left = `20px`;
+        this.score.style.color = '#E14802';
+        this.score.style.zIndex = 2;
+        this.score.style.fontSize = '25px'
+        root.appendChild(this.score);
+        //initiate boss
+        this.boss;
     }
 
     gameLoop = () => {
-        //bullets
-        if (this.player.bulletsUp.length > 0) {
-            this.player.bulletsUp.forEach( bullet => {
-                bullet.y -= 2;
-                bullet.domElement.style.top = `${bullet.y}px`;
-            } )
-        }
-        //check and update enemies
+        //update enemies and bullets
         while (this.enemies.length < MAX_ENEMIES) {
             this.enemies.push(new Enemy(this.root))
         }
@@ -48,23 +53,18 @@ class Engine {
                 if (isCollide(bullet, enemy)) {
                     enemy.destroyed = true;
                     bullet.destroyed = true;
+                    this.score.innerText = `${parseInt(this.score.innerText) + 10}`;
                 }
                 bullet.updatePos();
             })
             enemy.updatePos(time);
-            
         })
         this.enemies = this.enemies.filter( enemy => !enemy.destroyed );
         this.player.bulletsUp = this.player.bulletsUp.filter( bullet => !bullet.destroyed);
-        
-        
+
     };
 
     isPlayerDead = () => {
         return this.enemies.some( (enemy) => isCollide(this.player, enemy))
-    }
-
-    hit  = () => {
-
     }
 }

@@ -4,14 +4,16 @@ class Enemy {
         this.domElement = document.createElement('img');
         this.domElement.src = './images/rock.png';
         //locate the enemy
-        this.x = Math.random() * (GAME_WIDTH - ENEMY_WIDTH);
-        this.y = -ENEMY_HEIGHT;
+        this.width = ENEMY_WIDTH;
+        this.height = ENEMY_HEIGHT;
+        this.x = Math.random() * (GAME_WIDTH - this.width);
+        this.y = -this.height;
         this.domElement.style.position = 'absolute';
         this.domElement.style.top = `${this.y}`;
         this.domElement.style.left = `${this.x}`;
         this.domElement.style.zIndex = '2';
-        this.domElement.style.height = `${ENEMY_HEIGHT}px`;
-        this.domElement.style.width = `${ENEMY_WIDTH}px`;
+        this.domElement.style.height = `${this.height}px`;
+        this.domElement.style.width = `${this.width}px`;
         root.appendChild(this.domElement);
 
         //game status
@@ -28,7 +30,10 @@ class Enemy {
             this.destroyed = true;
         }
         if (this.destroyed) {
-            this.root.removeChild(this.domElement);
+            this.domElement.src = './images/explosion.png';
+            setTimeout(() => {
+                this.root.removeChild(this.domElement)
+            }, 80);;
         }
 
         if (ENEMY_WIDTH >= INI_ENEMY_WIDTH * 2) {
